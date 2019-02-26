@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import com.google.gson.Gson;
 import com.mc.srqservice.commom.SRQDataReaderServiceImpl;
 import com.mc.srqservice.domain.Feature;
+import com.mc.srqservice.domain.StroryFeature;
 
 @RequestMapping("/srqs")
 @RestControllerAdvice
@@ -38,4 +40,19 @@ public class SRQController {
 		return srqData;
 	}
 	
+	
+	@GetMapping("featureWise/SRQ")
+	public List<StroryFeature>  getFeaturewiseList(){
+		
+		List<StroryFeature> features = null;
+		try {
+			features =service.getStrucutredFeatureList().stream().filter(p->p.getFeatureId()!=null && !p.getFeatureId().equalsIgnoreCase("")).distinct().collect(Collectors.toList());
+			features = features.stream().collect(Collectors.toSet()).stream().collect(Collectors.toList());
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return  features;
+	}
 }
