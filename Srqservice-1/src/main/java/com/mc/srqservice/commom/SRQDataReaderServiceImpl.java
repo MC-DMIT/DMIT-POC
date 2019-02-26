@@ -2,9 +2,12 @@ package com.mc.srqservice.commom;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -158,17 +161,25 @@ public class SRQDataReaderServiceImpl {
 	
 	public List<StroryFeature> getStrucutredFeatureList() throws IOException{
 		List<SrqDomain> srqDomainsListFromCSV = csvReaders.parseCSVToBeanList();
+		//List<SrqDomain> list1 = new ArrayList<SrqDomain>();
 		List<StroryFeature> featuresList = new ArrayList<StroryFeature>();
+		//List<StroryFeature> featuresList1 = new ArrayList<StroryFeature>();
 		
 		for(SrqDomain srqDomain:srqDomainsListFromCSV) {
 			StroryFeature feature = new StroryFeature();
 			
 			List<SrqDomain> srqDomainList=srqDomainsListFromCSV.stream().distinct().filter(this.getSRQList(srqDomain.getFeature() ))
 					.collect(Collectors.<SrqDomain> toList());
+			
+			/*Set<SrqDomain> deptSet = srqDomainList.stream()
+	                .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(SrqDomain::getFeature))));
+			deptSet.forEach(dept -> list1.add(dept));*/
+			
 			//srqDomainList = srqDomainList.stream().collect(Collectors.toSet()).stream().collect(Collectors.toList());
 			feature.setFeatureId(srqDomain.getFeature());
 			//srqDomainList = srqDomainList.subList(0, 1);
 			feature.setSrqList(srqDomainList);
+			//feature.setSrqList(list1);
 			featuresList.add(feature);
 		}
 		

@@ -1,7 +1,11 @@
 package com.mc.srqservice.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,14 +49,18 @@ public class SRQController {
 	public List<StroryFeature>  getFeaturewiseList(){
 		
 		List<StroryFeature> features = null;
+		List<StroryFeature> features1 = new ArrayList<StroryFeature>();
 		try {
 			features =service.getStrucutredFeatureList().stream().filter(p->p.getFeatureId()!=null && !p.getFeatureId().equalsIgnoreCase("")).distinct().collect(Collectors.toList());
 			features = features.stream().collect(Collectors.toSet()).stream().collect(Collectors.toList());
+			Set<StroryFeature> deptSet = features.stream()
+	                .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(StroryFeature::getFeatureId))));
+			deptSet.forEach(dept -> features1.add(dept));
 		}catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return  features;
+		return  features1;
 	}
 }
