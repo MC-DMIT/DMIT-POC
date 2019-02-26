@@ -2,7 +2,7 @@ package com.mc.srqservice.domain;
 
 import java.util.List;
 
-public class StroryFeature {
+public class StroryFeature  {
 
 	public String getFeatureId() {
 		return featureId;
