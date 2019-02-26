@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.mc.srqservice.domain.Feature;
 import com.mc.srqservice.domain.SrqDomain;
+import com.mc.srqservice.domain.StroryFeature;
 import com.mc.srqservice.domain.UserStories;
 
 @Service
@@ -145,6 +147,29 @@ public class SRQDataReaderServiceImpl {
 				count++;
 			}
 			
+		}
+		
+		return featuresList;
+	}
+	
+	public Predicate<SrqDomain> getSRQList(String feature){
+		return p->p.getFeature().equalsIgnoreCase(feature) ;
+	}
+	
+	public List<StroryFeature> getStrucutredFeatureList() throws IOException{
+		List<SrqDomain> srqDomainsListFromCSV = csvReaders.parseCSVToBeanList();
+		List<StroryFeature> featuresList = new ArrayList<StroryFeature>();
+		
+		for(SrqDomain srqDomain:srqDomainsListFromCSV) {
+			StroryFeature feature = new StroryFeature();
+			
+			List<SrqDomain> srqDomainList=srqDomainsListFromCSV.stream().distinct().filter(this.getSRQList(srqDomain.getFeature() ))
+					.collect(Collectors.<SrqDomain> toList());
+			//srqDomainList = srqDomainList.stream().collect(Collectors.toSet()).stream().collect(Collectors.toList());
+			feature.setFeatureId(srqDomain.getFeature());
+			//srqDomainList = srqDomainList.subList(0, 1);
+			feature.setSrqList(srqDomainList);
+			featuresList.add(feature);
 		}
 		
 		return featuresList;
