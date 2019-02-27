@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.mc.srqservice.domain.SrqDomain;
@@ -16,6 +18,8 @@ import com.opencsv.bean.HeaderColumnNameTranslateMappingStrategy;
 @Component
 public class CSVReaders {
 
+	@Value("${filePath}")
+	private String filePath;
 
 /*public  List<SrqDomain> processInputFile(String inputFilePath) {
 	  List<SrqDomain> inputList = new ArrayList<SrqDomain>();
@@ -32,7 +36,7 @@ public class CSVReaders {
 }
 	*/
 	
-public static List<SrqDomain> parseCSVToBeanList() throws IOException {
+public  List<SrqDomain> parseCSVToBeanList() throws IOException {
 		
 		HeaderColumnNameTranslateMappingStrategy<SrqDomain> beanStrategy = new HeaderColumnNameTranslateMappingStrategy<SrqDomain>();
 		beanStrategy.setType(SrqDomain.class);
@@ -53,15 +57,15 @@ public static List<SrqDomain> parseCSVToBeanList() throws IOException {
 		beanStrategy.setColumnMapping(columnMapping);
 		
 		CsvToBean<SrqDomain> csvToBean = new CsvToBean<SrqDomain>();
-		CSVReader reader = new CSVReader(new FileReader("D:\\srq1.csv"));
+		//CSVReader reader = new CSVReader(new FileReader("D:\\srq1.csv"));
+		CSVReader reader = new CSVReader(new FileReader(filePath));
+		
 		List<SrqDomain> emps = csvToBean.parse(beanStrategy, reader);
 		System.out.println(emps);
 		return emps;
 	}
 
 
-/*public static void main(String[] args) throws IOException{
-	parseCSVToBeanList();
-}*/
+
 	
 }
