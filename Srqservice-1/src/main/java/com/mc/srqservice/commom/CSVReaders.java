@@ -2,9 +2,16 @@ package com.mc.srqservice.commom;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -61,6 +68,23 @@ public  List<SrqDomain> parseCSVToBeanList() throws IOException {
 		CSVReader reader = new CSVReader(new FileReader(filePath));
 		
 		List<SrqDomain> emps = csvToBean.parse(beanStrategy, reader);
+		
+		 Set deptSet = new HashSet<>();
+		 
+		 emps.removeIf(p -> !deptSet.add(p.getFormattedId()));
+		 
+	/*	LinkedList<SrqDomain> mylist = emps.stream().distinct().filter(p->p.getFormattedId()!=null && !p.getFormattedId().equalsIgnoreCase(""))
+				.collect(Collectors.toCollection(LinkedList::new));*/
+		
+	/*	Set<SrqDomain> deptSet = emps.stream()
+                .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(SrqDomain::getFeature))));*/
+		
+       // deptSet.forEach(dept -> System.out.println("DeptId (" + dept.getFeature() + ") Name :" + dept.getFeature()));
+		
+	/*	HashSet<SrqDomain> SrqDomainHashSet = emps
+			      .stream().filter(p->p.getFormattedId()!=null && !p.getFormattedId().equalsIgnoreCase(""))
+			      .collect(Collectors.toCollection(HashSet::new));*/
+		
 		System.out.println(emps);
 		return emps;
 	}
