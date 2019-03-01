@@ -77,8 +77,8 @@ public class SrqDomain {
 	public String toString() {
 		return "SrqDomain [formattedId=" + formattedId + ", name=" + name + ", scheduleState=" + scheduleState
 				+ ", blocked=" + blocked + ", displaycolor=" + displaycolor + ", owner=" + owner + ", creationDate="
-				+ creationDate + ", iteration=" + iteration + ", planEstimate=" + planEstimate + ", feature=" + feature
-				+ "]";
+				+ creationDate + ", iteration=" + iteration + ", planEstimate=" + planEstimate + ", feature=" + feature + 
+				 ",createdBy=" + createdBy + "]";
 	}
 	private String displaycolor;
 	private String owner;
@@ -86,4 +86,11 @@ public class SrqDomain {
 	private String iteration;
 	private String planEstimate;
 	private String feature;
+	private String createdBy;
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 }

@@ -65,6 +65,7 @@ public class SRQController {
 		return  features1;
 	}
 	
+	
 	@GetMapping("featureWise/story/status")
 	public List<SrqStatus> getFeaturWiseStoryStatus(){
 		List<SrqStatus> statusList =null;

@@ -188,14 +188,20 @@ public class SRQDataReaderServiceImpl {
 		return featuresList;
 	}
 	
+	
 	public List<SrqStatus> getStoryStatus() throws IOException{
-		Map<String, Integer> statusMap = new HashMap<String, Integer>();
+		
 		List<SrqStatus> statusList = new ArrayList<SrqStatus>();
 		List<SrqDomain> srqDomainsListFromCSV = csvReaders.parseCSVToBeanList();
 		for(SrqDomain srqDomain:srqDomainsListFromCSV) {
 			SrqStatus srqStatus  = new SrqStatus();
-			List<SrqDomain> srqDomainList=srqDomainsListFromCSV.stream().distinct().filter(this.getSRQList(srqDomain.getFeature() ))
+			Map<String, Integer> statusMap = new HashMap<String, Integer>();
+		List<SrqDomain> srqDomainList=srqDomainsListFromCSV.stream().distinct().filter(this.getSRQList(srqDomain.getFeature() ))
 					.collect(Collectors.<SrqDomain> toList());
+			
+			
+			/*List<SrqDomain> srqDomainList=srqDomainsListFromCSV.stream().distinct().filter(k->k.getFeature().equalsIgnoreCase(srqDomain.getFeature()) )
+					.collect(Collectors.<SrqDomain> toList());*/
 			
 			/*List<SrqDomain> srqDomainList=srqDomainsListFromCSV.stream().distinct()
 					.collect(Collectors.<SrqDomain> toList());*/
@@ -214,9 +220,26 @@ public class SRQDataReaderServiceImpl {
                                                ArrayList::new));*/
 			
 			statusMap.put("Ready to Ship", readytoShipList.size());
+			
 			List<SrqDomain> completedList = srqDomainList.stream().distinct().
-					filter(x->x.getScheduleState().equalsIgnoreCase("Completed")).collect(Collectors.<SrqDomain> toList());
+					filter(q->q.getScheduleState().equalsIgnoreCase("Completed")).collect(Collectors.<SrqDomain> toList());
 			statusMap.put("Completed", completedList.size());
+			
+			List<SrqDomain> AcceptedList = srqDomainList.stream().distinct().
+					filter(w->w.getScheduleState().equalsIgnoreCase("Accepted")).collect(Collectors.<SrqDomain> toList());
+			statusMap.put("Accepted", AcceptedList.size());
+			
+			List<SrqDomain> DefinedList = srqDomainList.stream().distinct().
+					filter(e->e.getScheduleState().equalsIgnoreCase("Defined")).collect(Collectors.<SrqDomain> toList());
+			statusMap.put("Defined", DefinedList.size());
+			
+			List<SrqDomain> inprogressList = srqDomainList.stream().distinct().
+					filter(r->r.getScheduleState().equalsIgnoreCase("In-Progress")).collect(Collectors.<SrqDomain> toList());
+			statusMap.put("In-Progress", inprogressList.size());
+			
+			List<SrqDomain> UnelaboratedList = srqDomainList.stream().distinct().
+					filter(t->t.getScheduleState().equalsIgnoreCase("Unelaborated")).collect(Collectors.<SrqDomain> toList());
+			statusMap.put("Unelaborated", UnelaboratedList.size());
 			
 			srqStatus.setName(srqDomain.getFeature());
 			srqStatus.setCount(statusMap);
