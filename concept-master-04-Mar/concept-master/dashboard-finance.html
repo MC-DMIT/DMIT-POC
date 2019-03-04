@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/vector-map/jqvmap.css">
+    <link href="assets/vendor/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/daterangepicker/daterangepicker.css" />
+    <title>DMIT & Rackspace Dashboard</title>
+
+<script>
+function myFunction() {
+document.getElementById('demo').value= Date();
+}
+</script>
+
+ 
+ </head>
+<body onload="myFunction()">
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+			<img src="assets/images/mastercard-logo1.png" Height="70"Width ="145" alt="mastercard-logo" >
+                <a class="navbar-brand" href="dashboard-finance.html">Mastercard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item dropdown notification">
+                            <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                <li>
+                                    <div class="notification-title"> Notification</div>
+                                    <div class="notification-list">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
+                                                        <div class="notification-date">2 days ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="notification-info">
+                                                    <div class="notification-list-user-img"><img src="assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
+                                                        <div class="notification-date">2 min ago</div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li class="nav-item dropdown connection">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
+                                <li class="connection-list">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                            <a href="https://www.mastercard.com" class="connection-item"><img src="assets/images/mastercard-logo.png" alt="" > <span>Mastercard</span></a>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                            <a href="https://masterpass.com" class="connection-item"><img src="assets/images/masterpass-logo.jpg" alt="" > <span>Masterpass</span></a>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                            <a href="https://www.priceless.com/" class="connection-item"><img src="assets/images/priceless-logo.png" alt="" > <span>Priceless</span></a>
+                                        </div>
+                                    </div>
+                                   <!--  <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                            <a href="#" class="connection-item"><img src="assets/images/bitbucket.png" alt=""> <span>Donate</span></a>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                            <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
+                                            <a href="#" class="connection-item"><img src="assets/images/slack.png" alt="" > <span>Slack</span></a>
+                                        </div>
+                                    </div> -->
+                                </li>
+                                <li>
+                                    <div class="conntection-footer"><a href="#">More</a></div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name">DMIT User  </h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                                <div id="submenu-1" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
+                                            <div id="submenu-1-2" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="index.html">E Commerce Dashboard</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="ecommerce-product.html">Product List</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="ecommerce-product-single.html">Product Single</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="ecommerce-product-checkout.html">Product Checkout</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="dashboard-finance.html">Finance</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="dashboard-sales.html">Sales</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
+                                            <div id="submenu-1-1" class="collapse submenu" style="">
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="influencer-finder.html">Influencer Finder</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="influencer-profile.html">Influencer Profile</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                           <!--  <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>UI Elements</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/general.html">General</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/carousel.html">Carousel</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/listgroup.html">List Group</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/typography.html">Typography</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/accordions.html">Accordions</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/tabs.html">Tabs</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                          <!--   <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/chart-c3.html">C3 Charts</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/chart-chartist.html">Chartist Charts</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/chart-charts.html">Chart</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/chart-morris.html">Morris</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/chart-sparkline.html">Sparkline</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/chart-gauge.html">Guage</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                           <!--  <li class="nav-item ">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forms</a>
+                                <div id="submenu-4" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/form-elements.html">Form Elements</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/form-validation.html">Parsely Validations</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/multiselect.html">Multiselect</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/datepicker.html">Date Picker</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/bootstrap-select.html">Bootstrap Select</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Tables</a>
+                                <div id="submenu-5" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/general-table.html">General Tables</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pages/data-tables.html">Data Tables</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-divider">
+                                Other Features
+                            </li> -->
+                            
+                            
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-finance">
+                <div class="container-fluid dashboard-content">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h3 class="mb-2">DMIT & Rackspace Dashboard </h3>
+                                
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <!-- <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Finance Dashboard Template</li> -->
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="offset-xl-10 col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12">
+                            <form>
+                                <div class="form-group">
+                                    <input class="form-control" name="daterange" type="text" id="demo" value="date">
+									
+									
+										
+									
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Release Status</h5>
+                                <div class="card-body">
+                                    <div class="metric-value d-inline-block">
+                                       <label for="business">Release Number</label>
+
+									   <select>
+									  		<option selected value="Release1">Select</option>				
+											<option value="Release1">Marketing 19.1</option>
+											<option value="Release2">Marketing 19.2</option>
+											
+										</select>
+									</div> <p>&nbsp;</p>
+									<div class="metric-value d-inline-block">
+									<label for="business">Feature Number</label>
+									  <select>
+									  		<option value="Features">Select</option>				
+											<option value="Marketing 19.1">F112204 :EUR-DMIT Jan Support</option>
+											<option value="Marketing 19.1">F112203 :EUR-DMIT Feb Support</option>
+											<option value="Marketing 19.1">F112617 :AP-DMIT Feb Support</option>
+											<option value="Marketing 19.2">F117755 :MEA Oman English Skinny Site</option>
+											<option value="Marketing 19.2">F119155 :MEA Oman Arabic Skinny Site</option>
+										</select>
+									  
+                                    </div>
+                                    <p>&nbsp;</p>
+								  <p>&nbsp;</p>
+                                </div>
+                               
+                                <div class="card-footer text-center bg-white">
+                                    <a href="http://localhost:4200/" target="_blank" class="card-link">View Details</a>
+                                </div>
+								
+                            </div>
+                        </div>
+                        
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card" align="center">
+                                <h5 class="card-header">Splunk Data</h5>
+                                <div class="card-body">
+                                    <div class="metric-value d-inline-block" align ="middle">
+                                        <h5 class="mb-1" align ="middle"> AEM server health stat</h5>
+										<img src="assets\images\uc.png" >
+                                    </div>
+                                   
+                                </div>
+                               <!--  <div class="card-body bg-light p-t-40 p-b-40">
+                                    
+                                </div> -->
+                                <div class="card-footer text-center bg-white">
+                                    <a href="#" class="card-link">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card"align="center">
+                                <h5 class="card-header">Rack space</h5>
+                                <div class="card-body">
+                                    <div class="metric-value d-inline-block">
+                                        <h4 class="mb-1">Rack space details</h4>
+										<img src="assets\images\uc.png" style="float:right;">
+                                    </div>
+                                   
+                                </div>
+                                <!-- <div class="card-body bg-light p-b-40 p-t-40">
+                                  
+                                </div> -->
+                                <div class="card-footer text-center bg-white">
+                                    <a href="#" class="card-link">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end revenue year  -->
+                    <!-- ============================================================== -->
+                    
+                        <!-- ============================================================== -->
+                        <!-- ap and ar balance  
+                        ============================================================== -->
+                      <!--   <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">AP and AR Balance
+                                </h5>
+                                <div class="card-body">
+                                    <canvas id="chartjs_balance_bar"></canvas>
+                                </div>
+                            </div>
+                        </div> -->
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-5">
+                            <div class="section-block">
+                                <h5 class="section-title">Feature Data</h5>
+                                <p></p>
+                            </div>
+                            <div class="simple-card">
+                                <ul class="nav nav-tabs" id="myTab5" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active border-left-0" id="home-tab-simple" data-toggle="tab" href="#home-simple" role="tab" aria-controls="home" aria-selected="true">Table of Feature details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab-simple" data-toggle="tab" href="#profile-simple" role="tab" aria-controls="profile" aria-selected="false">Chart of Created by Data</a>
+                                    </li>
+									<li class="nav-item">
+                                        <a class="nav-link" id="contact-tab-simple" data-toggle="tab" href="#contact-simple" role="tab" aria-controls="contact" aria-selected="false">Chart  of Owner data</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent5">
+                                    <div class="tab-pane fade show active" id="home-simple" role="tabpanel" aria-labelledby="home-tab-simple">
+                                     <div class="card">
+         
+		 <h5 class="card-header">Feature : F117755 :MEA Oman English Skinny Site</h5>
+		 <div class="card-body">
+             <table class="table">
+            <!--<table id="data-table" border="1" cellpadding="10" cellspacing="0"
+            summary="">
+               <caption> </caption>-->
+               <thead>
+                  <tr>
+                    
+					 <th scope="col">Story No</th>
+                     <th scope="col">Status</th>
+                     <th scope="col">Owner</th>
+                     <th scope="col">Created By</th>
+                    <!-- <th scope="col">2015</th>
+                     <th scope="col">2016</th>-->
+                  </tr>
+               </thead>
+               <tbody>
+                  
+				  <tr class="table-primary">
+                     <th scope="row">S695225</th>
+                     <td>Completed</td>
+                     <td>Elmeadwy Ahmed</td>
+                     <td>Vineeth Malladi</td>
+                     
+                  </tr>
+                  <tr class="table-success">
+                     <th scope="row">S706916</th>
+                     <td>Defined</td>
+                     <td>Elmeadwy Ahmed</td>
+                     <td>Vineeth Malladi</td>
+                    
+                  </tr>
+                 <tr class="table-primary">
+                     <th scope="row">S706917</th>
+                     <td>Unelaborated</td>
+                     <td>Elmeadwy Ahmed</td>
+                     <td>Vineeth Malladi</td>
+                     
+                  </tr>
+				   <tr class="table-success">
+                     <th scope="row">S707450</th>
+                     <td>Ready to Ship</td>
+                     <td>Nasr Charbel</td>
+                     <td>Dhanasai Mandava</td>
+                     
+                  </tr>
+				  <tr class="table-primary">
+                     <th scope="row">S707463</th>
+                     <td>Ready to Ship</td>
+                     <td>Nasr Charbel</td>
+                     <td>Dhanasai Mandava</td>
+                     
+                  </tr>
+				   <tr class="table-success">
+                     <th scope="row">S710414</th>
+                     <td>Completed</td>
+                     <td>Nasr Charbel</td>
+                     <td>Shikha Choudhary</td>
+                     
+                  </tr>
+				  <tr class="table-primary">
+                     <th scope="row">S710420</th>
+                     <td>Defined</td>
+                     <td>Elmeadwy Ahmed</td>
+                     <td>Shikha Choudhary</td>
+                     
+                  </tr>
+				   <tr class="table-success">
+                     <th scope="row">S710891</th>
+                     <td>Ready to Ship</td>
+                     <td>Nasr Charbel</td>
+                     <td>Dhanasai Mandava</td>
+                     
+                  </tr>
+				  <tr class="table-primary">
+                     <th scope="row">S713437</th>
+                     <td>In-Progress</td>
+                     <td>Elmeadwy Ahmed</td>
+                     <td>Vineeth Malladi</td>
+                     
+                  </tr>
+				   <tr class="table-success">
+                     <th scope="row">S719285</th>
+                     <td>Ready to Ship</td>
+                     <td>Elmeadwy Ahmed</td>
+                     <td>Vineeth Malladi</td>
+                     
+                  </tr>
+				  <tr class="table-primary">
+                     <th scope="row">S722494</th>
+                     <td>Ready to Ship</td>
+                     <td>Nasr Charbel</td>
+                     <td>Vineeth Malladi</td>
+                     
+                  </tr>
+				   <tr class="table-success">
+                     <th scope="row">S730629</th>
+                     <td>Completed</td>
+                     <td>Nasr Charbel</td>
+                     <td>Dhanasai Mandava</td>
+                     
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+		
+      </div>  
+                                    </div>
+                                    <div class="tab-pane fade" id="profile-simple" role="tabpanel" aria-labelledby="profile-tab-simple">
+                                      <p>Feature : F117755 :MEA Oman English Skinny Site</p>  
+									  
+													<div class="card">
+														<h5 class="card-header">Bar Chart</h5>
+														<div class="card-body">
+															<canvas id="chartjs_bar"></canvas>
+														<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+													</div>
+												</div>
+                                    </div>
+                                   <div class="tab-pane fade" id="contact-simple" role="tabpanel" aria-labelledby="contact-tab-simple">
+                                        <p>Feature : F117755 :MEA Oman English Skinny Site</p>
+															<div class="card">
+												<h5 class="card-header"> Chart</h5>
+												<div class="card-body">
+													<canvas id="chartjs_bar1"></canvas>
+												</div>
+											</div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+						                        <!-- ============================================================== -->
+                        <!-- end ap and ar balance  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- gross profit  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end gross profit  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- profit margin  -->
+                        <!-- ============================================================== -->
+                       
+                    
+                    <!-- ============================================================== -->
+                    <!-- end profit margin -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- earnings before interest tax  -->
+                    <!-- ============================================================== -->
+                   
+                        <!-- ============================================================== -->
+                        <!-- end earnings before interest tax  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- cost of goods  -->
+                        <!-- ============================================================== -->
+                        
+                        <!-- ============================================================== -->
+                        <!-- end cost of goods  -->
+                        <!-- ============================================================== -->
+                    </div>
+                 
+                    <!-- ============================================================== -->
+                    <!-- end inventory turnover -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row"align ="middle">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" padding-left:500px;>
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>. 
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="https://www.mastercard.us/en-us/about-mastercard.html"target="_blank">About</a>
+                                <a href="https://www.mastercard.us/en-us/ask-mastercard-webform.html"target="_blank">Support</a>
+                                <a href="https://www.mastercard.us/content/dam/mccom/global/documents/global-services-phone-numbers.pdf"target="_blank">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- end wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- jquery 3.3.1  -->
+    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- chart chartist js -->
+    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <script src="assets/vendor/charts/chartist-bundle/Chartistjs.js"></script>
+    <script src="assets/vendor/charts/chartist-bundle/chartist-plugin-threshold.js"></script>
+    <!-- chart C3 js -->
+    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <!-- chartjs js -->
+    <script src="assets/vendor/charts/charts-bundle/Chart.bundle.js"></script>
+    <script src="assets/vendor/charts/charts-bundle/chartjs.js"></script>
+    <!-- sparkline js -->
+    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- dashboard finance js -->
+    <script src="assets/libs/js/dashboard-finance.js"></script>
+    <!-- main js -->
+    <script src="assets/libs/js/main-js.js"></script>
+    <!-- gauge js -->
+    <script src="assets/vendor/gauge/gauge.min.js"></script>
+    <!-- morris js -->
+    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morrisjs.html"></script>
+	
+	
+	
+	
+    <!-- daterangepicker js -->
+    <script src="../../../../cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="../../../../cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+    $(function() {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+        }, function(start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        });
+    });
+    </script>
+	<script src="assets\libs\js\dropdown.js" type="text/javascript" defer="defer"></script>
+	
+</body>
+</html>
